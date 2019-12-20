@@ -1,0 +1,24 @@
+<div class="row">
+	<div><span style="color: #2c39d2;
+    font-size: 18px;font-weight: bold;">Search @ Twitter</span><span style="float: right;color: #2c39d2;
+    font-size: 18px;font-weight: bold;">Auto Refresh in 27 second</span></div>
+
+</div>
+<hr>
+<div style="padding: 10px;margin-left: 30%;margin-bottom: 20px;margin-right: 30%;">
+	<select [(ngModel)]="selectedvalue" style="height: 20px;width:20%;">
+		<option value="id" >Id</option>
+		<option value="userName" >UserName</option>
+	</select>
+	<input type="text" name="selectedvalue" [(ngModel)]="valueInput"  placeholder="Search" style="width:65%;">
+	<!-- <button (click)="onClickGo(selectedvalue,valueInput)">Go</button> -->
+</div>
+<div *ngFor="let i of arrayJson  | filter : selectedvalue : valueInput">
+	<div style="height: 80px;width: 75%;background-color: #eee;padding:5px;margin:auto;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+		<img src="{{i.user.profile_image_url}}">
+		<span>{{i.user.name}}</span><span style="margin-left: 10%;">{{i.user.created_at}}</span>
+		<br>
+		<span >{{i.text}}{{i.user.url}}</span>
+	</div>
+	<br>
+</div>
